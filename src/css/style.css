@@ -9,6 +9,12 @@
   --rojo: #de361c;
   --verde: #36ab2b;
 }
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100%),
+    radial-gradient(1250px circle at 100% 100%, hsl(218, 41%, 45%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100%);
+}
+
 /* Estilos generales */
 .texto-primario {
   color: var(--azul-secundario);
@@ -17,9 +23,7 @@
 
 .texto-primario a {
   text-decoration: none;
-  /* Elimina la decoración del enlace */
   color: var(--azul);
-  /* Establece el color del enlace */
 }
 
 .fondo-gis {
@@ -40,6 +44,11 @@
   border: 1px solid var(--azul);
   color: var(--azul);
 }
+.input-field em {
+  font-size: 1em;
+  margin: 5px 15px;
+}
+
 .input-field:hover{
   color: var(--azul-secundario);
   border: 1px solid var(--azul-secundario);
@@ -47,38 +56,48 @@
 
 input{
   border: none;
-  outline: none;
-  box-shadow: none;
+  color: var(--azul);
+}
+.boton{
+  background-color: var(--azul) !important;
+  color: var(--blanco) !important;
+  font-weight: bold !important;
+  text-align: center!important;
   width: 100%;
-  padding: 0px 2px;
-  font-family: 'Poppins', sans-serif; 
+  margin-bottom: 0px;
 }
 
-/* Estilos para el ícono de GitHub */
-.ico-github {
-  background-color: var(--negro) !important;
-  /* Fondo negro */
+/* Estilos para los íconos */
+.ico {
+  background-color: var(--gris) !important;
   border: 2px solid transparent !important;
-  /* Elimina el borde */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
-  /* Añade sombreado */
   border-radius: 50% !important;
-  /* Redondear el botón */
-  padding: 10px !important;
-  /* Espaciado interno */
+  padding: 4px !important;
   display: inline-flex !important;
-  /* Asegura que el ícono esté en línea */
   align-items: center !important;
-  /* Alinea verticalmente el ícono */
   justify-content: center !important;
-  /* Alinea horizontalmente el ícono */
+  width: 47.25px; /* Ancho del botón */
+  height: 48px; /* Alto del botón */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden; 
 }
+.ico img {
+  width: 100%; 
+  height: auto;
 
-.ico-github i {
-  font-size: 1.5rem;
-  color: var(--blanco);
   margin: 0;
   padding: 0;
+}
+.github {
+  background-color: var(--negro) !important;
+  padding: 10px !important;
+}
+.ico i {
+  font-size: 1.5rem;
+  color: var(--blanco);
 }
 
 /* Estilos para el header */
