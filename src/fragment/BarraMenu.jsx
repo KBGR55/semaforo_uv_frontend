@@ -46,6 +46,7 @@ const NavLink = ({ classNameNav}) => {
         // El className se utiliza en el componente Nav
         <Nav className={classNameNav}>
             <Nav.Link href="/">Inicio</Nav.Link>
+            <Nav.Link href="/radiacion">Radiacion UV</Nav.Link>
             <Nav.Link href="/api">Api</Nav.Link>
             <li className="nav-item dropdown" onClick={toggleDropdown}>
                 <span className="nav-link">Mi cuenta</span>

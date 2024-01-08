@@ -18,7 +18,7 @@ const Login = () => {
             "correo": data.correo,
             "clave": data.clave
         };
-
+        
         InicioSesion(datos).then((info) => {
             var infoAux = info.info
             if (info.code !== 200) {
@@ -96,8 +96,6 @@ const Login = () => {
                                 El acceso a la API exclusiva está disponible tras iniciar sesión, esta singular oferta proporciona datos específicos para potenciar proyectos,
                                 siendo el único servicio exclusivo actual. </p>
                         </div>
-
-
                     </div>
                 </div>
             </section>
