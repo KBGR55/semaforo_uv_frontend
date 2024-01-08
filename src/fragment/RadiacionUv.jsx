@@ -57,8 +57,44 @@ const UVSemaforo = ({ nivel }) => {
   );
 };
 */
+const getMessageForColor = (color) => {
+    switch (color) {
+        case 'green':
+            return 'Puede disfrutar del sol con precaución.';
+        case 'yellow':
+            return 'Aplique protector solar y use sombrero.';
+        case 'orange':
+            return 'Evite el sol entre las 10 a.m. y las 4 p.m.';
+        case 'red':
+            return 'Busque sombra y use protector solar.';
+        case 'purple':
+            return 'Evite la exposición al sol en horas de máxima radiación.';
+        default:
+            return '';
+    }
+};
+const getColorForLevel = (nivel) => {
+    if (nivel >= 0 && nivel <= 2) {
+        return 'green'; // Bajo
+    } else if (nivel > 2 && nivel <= 5) {
+        return 'yellow'; // Moderado
+    } else if (nivel > 5 && nivel <= 7) {
+        return 'orange'; // Alto
+    } else if (nivel > 7 && nivel <= 10) {
+        return 'red'; // Muy alto
+    } else if (nivel > 10 && nivel <= 15) {
+        return 'purple'; // Extremo
+    } else {
+        return 'blue';
+    }
+};
 const UVSemaforo = ({ nivel }) => {
     const $lucesDelCirculo = useRef([]);
+    const mensajeVerde = getMessageForColor('green');
+    const mensajeAmarillo = getMessageForColor('yellow');
+    const mensajeNaranja = getMessageForColor('orange');
+    const mensajeRojo = getMessageForColor('red');
+    const mensajeMorado = getMessageForColor('purple');
 
     useEffect(() => {
         const nivelColor = getColorForLevel(nivel);
@@ -68,22 +104,6 @@ const UVSemaforo = ({ nivel }) => {
             luz.classList.add(getColorForIndex(index, nivel)); // Agrega el color correspondiente al nivel y la posición
         });
     }, [nivel]);
-
-    const getColorForLevel = (nivel) => {
-        if (nivel >= 0 && nivel <= 2) {
-            return 'green'; // Bajo
-        } else if (nivel > 2 && nivel <= 5) {
-            return 'yellow'; // Moderado
-        } else if (nivel > 5 && nivel <= 7) {
-            return 'orange'; // Alto
-        } else if (nivel > 7 && nivel <= 10) {
-            return 'red'; // Muy alto
-        } else if (nivel > 10 && nivel <= 15) {
-            return 'purple'; // Extremo
-        } else {
-            return 'blue';
-        }
-    };
 
     const getColorForIndex = (index, nivel) => {
         const nivelColor = getColorForLevel(nivel);
@@ -95,44 +115,49 @@ const UVSemaforo = ({ nivel }) => {
             return 'luces-circulo'; // Conserva la clase base para otras posiciones
         }
     };
-
-    const getMessageForColor = (color) => {
-        switch (color) {
-            case 'green':
-                return 'Puede disfrutar del sol con precaución.';
-            case 'yellow':
-                return 'Aplique protector solar y use sombrero.';
-            case 'orange':
-                return 'Evite el sol entre las 10 a.m. y las 4 p.m.';
-            case 'red':
-                return 'Busque sombra y use protector solar.';
-            case 'purple':
-                return 'Evite la exposición al sol en horas de máxima radiación.';
-            default:
-                return '';
-        }
-    };
-
     return (
+
+
         <div className="container">
-            <div className="semaforo">
-                <span ref={(el) => $lucesDelCirculo.current[0] = el} className="luces-circulo">
-                    {getMessageForColor('green')}
-                </span>
-                <span ref={(el) => $lucesDelCirculo.current[1] = el} className="luces-circulo">
-                    {getMessageForColor('yellow')}
-                </span>
-                <span ref={(el) => $lucesDelCirculo.current[2] = el} className="luces-circulo">
-                    {getMessageForColor('orange')}
-                </span>
-                <span ref={(el) => $lucesDelCirculo.current[3] = el} className="luces-circulo">
-                    {getMessageForColor('red')}
-                </span>
-                <span ref={(el) => $lucesDelCirculo.current[4] = el} className="luces-circulo">
-                    {getMessageForColor('purple')}
-                </span>
-                
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div className="semaforo">
+                            <span ref={(el) => $lucesDelCirculo.current[0] = el} className="luces-circulo">
+                            </span>
+                            <span ref={(el) => $lucesDelCirculo.current[1] = el} className="luces-circulo">
+                            </span>
+                            <span ref={(el) => $lucesDelCirculo.current[2] = el} className="luces-circulo">
+                            </span>
+                            <span ref={(el) => $lucesDelCirculo.current[3] = el} className="luces-circulo">
+                            </span>
+                            <span ref={(el) => $lucesDelCirculo.current[4] = el} className="luces-circulo">
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                <div className="col-sm-6">
+                    <div className="alert alert-secondary" role="alert">
+                        {mensajeVerde}
+                    </div>
+                    <div className="alert alert-secondary" role="alert">
+                        {mensajeAmarillo}
+                    </div>
+                    <div className="alert alert-secondary" role="alert">
+                        {mensajeNaranja}
+                    </div>
+                    <div className="alert alert-secondary" role="alert">
+                        {mensajeRojo}
+                    </div>
+                    <div className="alert alert-secondary" role="alert">
+                        {mensajeMorado}
+                    </div>
+                </div>
+                </div>
             </div>
+
         </div>
     );
 };
