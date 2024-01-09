@@ -5,7 +5,7 @@ const mensajes = (texto, type='success', title='OK') => swal({
     text: texto,
     icon: type,
     button: 'OK',
-    timer: 3000,
+    timer: 3200,
     closeOnEsc: true
   });
 export default mensajes;
