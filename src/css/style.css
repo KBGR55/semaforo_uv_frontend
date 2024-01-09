@@ -235,6 +235,10 @@ header {
   border: 2px solid var(--blanco);
 }
 
+input{
+  border: none!important;
+}
+
 @media screen and (max-width: 768px) {
   .header-content {
     flex-direction: column;
