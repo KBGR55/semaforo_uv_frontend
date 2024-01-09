@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/style_registro.css';
+import '../css/style.css';
 import Footer from './Footer';
 import BarraMenu from './BarraMenu';
 import logo from '../logo.png';
@@ -63,7 +63,7 @@ const Registro = () => (
                           </div>
                           <div className="col-md-4">
                             <div className="form-outline">
-                              <em className="far fa-briefcase"></em>
+                              <em className="fa fa-briefcase"></em>
                               <input type="text" className="form-control" placeholder="Cargo" />
                             </div>
                           </div>
@@ -96,10 +96,11 @@ const Registro = () => (
               </div>
             </div>
           </div>
-          <div className="row gx-lg-5 align-items-center mb-5">
-            <div className="col-lg-7 mb-lg-0 position-relative">
-              {/* Contenido existente */}
-            </div>
+          <div className="col-lg-5 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
+            <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
+              Registrar Usuarios<br />
+
+            </h1>
           </div>
         </div>
       </div>
