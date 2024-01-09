@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm } from 'react-hook-form';
-import { InicioSesion } from '../hooks/Conexion';
-import { getToken, saveRol, saveToken, saveUser } from '../utilidades/Sessionutil';
+import { LoginPost, PeticionGet} from '../hooks/Conexion';
+import { getRol, getToken, saveRol, saveToken, saveUser } from '../utilidades/Sessionutil';
 import { useNavigate } from 'react-router';
 import mensajes from '../utilidades/Mensajes';
 import logo from '../logo.png';
@@ -17,22 +17,20 @@ const Login = () => {
         var datos = {
             "correo": data.correo,
             "clave": data.clave
-        };
-        
-        InicioSesion(datos).then((info) => {
-            var infoAux = info.info
-            if (info.code !== 200) {
+        };        
+        LoginPost(datos,'cuenta/sesion').then((info) => {  
+            if (info.code !== 200) { 
                 mensajes(info.msg, "error", "error");
             } else {
-                saveToken(infoAux.token);
-                saveRol(infoAux.user.rol);
-                console.log("lghjg" + infoAux.user.user);
-                saveUser(infoAux.user.user);
-                console.log("Token" + getToken());
+                saveToken(info.token);
+                console.log("Token:" + getToken());
+                console.log("Usuario: " + info.user);
+                saveUser(info.user);
+                saveRol(info.rol);
                 navegation("/api");
                 mensajes(info.msg);
-            }
-        })
+            };
+            });
     };
     const correoValue = watch('correo');
     const claveValue = watch('clave');
@@ -68,7 +66,6 @@ const Login = () => {
                                                         </div>
                                                         {errors.correo && errors.correo.type === 'required' && <div className='alert alert-danger'>Ingrese el correo</div>}
                                                         {errors.correo && errors.correo.type === 'pattern' && <div className='alert alert-danger'>Ingrese un correo valido</div>}
-
                                                     </div>
                                                     <div className='mb-4'>
                                                         <div className={`input-field form-outline ${claveValue ? 'active' : ''}`}>
