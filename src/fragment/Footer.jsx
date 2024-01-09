@@ -17,7 +17,7 @@ const Footer = () => {
         </section>
       </div>
       <div className="text-center p-3 fondo-gis texto-primario">
-        © 2023 DESARROLLADO:<a href="/"> GRUPO A - SEXTO - SEMÁFORO UV</a>
+        © 2023 DESARROLLADO:<a href="/"> GRUPO A - SEXTO - SEMÁFORO UV </a>
       </div>
     </footer>
   );
