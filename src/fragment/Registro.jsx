@@ -1,11 +1,9 @@
 import React from 'react';
-import '../css/style.css';
+import '../css/style_registro.css';
 import Footer from './Footer';
 import BarraMenu from './BarraMenu';
 import logo from '../logo.png';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/style.css';
 
 const Registro = () => (
   <div className="background-radial-gradient overflow-hidden">
@@ -20,8 +18,8 @@ const Registro = () => (
             <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
 
             <div className="card bg-glass">
-              <div class="card-header">
-                <span className="h1 fw-bold mb-4">SEMÁFORO UV</span>
+              <div className="card-header">
+                <span className="h1 fw-bold mb-4">Registro de usuarios</span>
               </div>
 
               <div className="card-body px-4 py-3">
@@ -31,58 +29,83 @@ const Registro = () => (
                   </div>
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body">
-                      <form>
-                      <div className='mb-4'>
-                          <div className={`input-field form-outline `}>
-                          <em className="far fa-user"></em>
-                            <input type= "text"  placeholder="Nombre" />
+                      <div className="container">
+                        <form className="row g-3">
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-user"></em>
+                              <input type="text" className="form-control" placeholder="Nombres" />
+                            </div>
                           </div>
-                          {/* {errors.clave && errors.clave.type === 'required' && <div className='alert alert-danger'>Ingrese una clave</div>} */}
-                        </div>
-
-                        <div className=' mb-4'>
-                          <div className={`input-field form-outline `}>
-                            <em className="far fa-user"></em>
-                            <input type="email" id="form2Example17" placeholder="Ingrese correo" />
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-user"></em>
+                              <input type="email" className="form-control" placeholder="Apellidos" />
+                            </div>
                           </div>
-                          {/* {errors.correo && errors.correo.type === 'required' && <div className='alert alert-danger'>Ingrese el correo</div>}
-        {errors.correo && errors.correo.type === 'pattern' && <div className='alert alert-danger'>Ingrese un correo valido</div>} */}
-
-                        </div>
-                        <div className='mb-4'>
-                          <div className={`input-field form-outline `}>
-                            <em class="fas fa-lock "></em>
-                            <input type="password" id="typeText" placeholder="Ingrese clave" />
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-map"></em>
+                              <input type="text" className="form-control" placeholder="Dirección" />
+                            </div>
                           </div>
-                          {/* {errors.clave && errors.clave.type === 'required' && <div className='alert alert-danger'>Ingrese una clave</div>} */}
-                        </div>
-                        <div className="mb-4">
-                          <button className="boton btn btn-lg btn-block" type="submit">INICIAR</button>
-                        </div>
-                      </form>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-calendar"></em>
+                              <input type="text" className="form-control" placeholder="Fecha Nacimiento" />
+                            </div>
+                          </div>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="fa fa-phone"></em>
+                              <input type="text" className="form-control" placeholder="Teléfono" />
+                            </div>
+                          </div>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-briefcase"></em>
+                              <input type="text" className="form-control" placeholder="Cargo" />
+                            </div>
+                          </div>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-building"></em>
+                              <input type="text" className="form-control" placeholder="Institución" />
+                            </div>
+                          </div>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="far fa-envelope"></em>
+                              <input type="text" className="form-control" placeholder="Correo" />
+                            </div>
+                          </div>
+                          <div className="col-md-4">
+                            <div className="form-outline">
+                              <em className="fas fa-key"></em>
+                              <input type="password" className="form-control" placeholder="Clave" />
+                            </div>
+                          </div>
+                          <div className="col-12 d-flex justify-content-end">
+                            <button type="submit" className="btn btn-primary">Registrarme</button>
+                          </div>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-lg-5 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
-            <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
-              Registro de usuarios<br />
-              <span style={{ color: 'hsl(218, 81%, 75%)' }}>Obtener acceso a la API!</span>
-            </h1>
-            {/* <p className="mb-4 opacity-70" style={{ color: 'hsl(218, 81%, 85%)', textAlign: "justify" }}>
-              El acceso a la API exclusiva está disponible tras iniciar sesión, esta singular oferta proporciona datos específicos para potenciar proyectos,
-              siendo el único servicio exclusivo actual. </p> */}
+          <div className="row gx-lg-5 align-items-center mb-5">
+            <div className="col-lg-7 mb-lg-0 position-relative">
+              {/* Contenido existente */}
+            </div>
           </div>
-
-
         </div>
       </div>
     </section>
     <Footer />
   </div>
-
 );
 
 export default Registro;
